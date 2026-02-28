@@ -8,15 +8,11 @@
     >
       const Graphic = await $arcgis.import("@arcgis/core/Graphic.js");
   const viewElement = document.querySelector("arcgis-map");
-  // Wait for the view to be ready before adding additional functionality
   await viewElement.viewOnReady();
 
-  // ...
-
-  // Create a graphic and add the geometry and symbol to it
   const pointGraphic = new Graphic({
-    geometry: point, // A point geometry
-    symbol: markerSymbol, // A symbol for drawing the point
+    geometry: point, 
+    symbol: markerSymbol,
   });
   viewElement.graphics.add(pointGraphic);
 
@@ -30,7 +26,18 @@
     <p> Dit is een kaart van de evolutie hoe de gebouwen rondom de amstel zijn opgebouwd </p>
 
           <arcgis-map center="-73.967569, 40.727724" zoom="12" resize-align="top-left">
+                <div slot="top-left" id="titleDiv">Amsterdam Amstel Construction</div>
 
+
+            <calcite-slider
+              id="yearsSlider"
+              value="1984"
+              label-ticks
+              ticks="137"
+              max-label="2017"
+              max="2017"
+              min-label="1880"
+              min="1880"></calcite-slider>
           </arcgis-map>
 </main>
     
@@ -38,16 +45,20 @@
 </html>
 
 <style>
-  html,
-  body {
+html,
+body {
     height: 100%;
     margin: 0;
   }
 
-    header {
-        background-color: darkblue;
-        color: white;
-        padding: 1em;
+header {
+    background-color: darkblue;
+    color: white;
+    padding: 1em;
+}
+
+ #slidyearsSliderer {
+        width: 80vw;
     }
 
 
