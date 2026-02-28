@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amsterdam</title>
+    <script type="module" src="https://js.arcgis.com/5.0/"
+    >
+      const Graphic = await $arcgis.import("@arcgis/core/Graphic.js");
+  const viewElement = document.querySelector("arcgis-map");
+  // Wait for the view to be ready before adding additional functionality
+  await viewElement.viewOnReady();
+
+  // ...
+
+  // Create a graphic and add the geometry and symbol to it
+  const pointGraphic = new Graphic({
+    geometry: point, // A point geometry
+    symbol: markerSymbol, // A symbol for drawing the point
+  });
+  viewElement.graphics.add(pointGraphic);
+
+</script>
+</head>
+<body>
+    <header>
+        <h1>Amsterdam Amstel map</h1>
+    </header>
+<main>
+    <p> Dit is een kaart van de evolutie hoe de gebouwen rondom de amstel zijn opgebouwd </p>
+
+          <arcgis-map center="-73.967569, 40.727724" zoom="12" resize-align="top-left">
+
+          </arcgis-map>
+</main>
+    
+</body>
+</html>
+
+<style>
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+    header {
+        background-color: darkblue;
+        color: white;
+        padding: 1em;
+    }
+
+
+</style>
